@@ -1,8 +1,11 @@
+import java.net.URI
+
 pluginManagement {
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
+        jcenter()
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +13,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://www.jitpack.io" )}
+        maven { url = uri("https://maven.google.com") }
+
+        jcenter()
     }
 }
 

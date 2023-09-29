@@ -1,5 +1,6 @@
 package com.example.firstapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.print.PrintAttributes.Margins
 import android.util.EventLogTags.Description
@@ -45,6 +46,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.firstapplication.ui.theme.FirstApplicationTheme
 import java.time.format.TextStyle
 
@@ -63,7 +65,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun OurAppUi(modifier: Modifier = Modifier) {
+fun OurAppUi() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -142,8 +144,9 @@ fun OurAppUi(modifier: Modifier = Modifier) {
         Button(
 
             onClick = {
-
-                Toast.makeText(context, "Welcome to Geeks for Geeks", Toast.LENGTH_LONG).show()
+                val intent = Intent(context,OTPActivity::class.java)
+                context.startActivity(intent)
+                Toast.makeText(context, "Welcome to Happid App", Toast.LENGTH_LONG).show()
             },
 
             shape = RoundedCornerShape(6.dp),
@@ -156,14 +159,14 @@ fun OurAppUi(modifier: Modifier = Modifier) {
            // border = BorderStroke(width = 1.dp, brush = SolidColor(Color.Blue)),
 
             // below line is use to add shape for our button.
-            colors = ButtonDefaults.buttonColors(Color(0xFF0E1C9C))
+            colors = ButtonDefaults.buttonColors(Color(0xFF7B53DB))
         )
         // below line is use to
         // add text on our button
         {
             Text(text = "Get Started", color = Color.White,
                 style = androidx.compose.ui.text.TextStyle(
-                fontSize = 14.sp,
+                fontSize = 16.sp,
                 fontFamily = FontFamily(Font(R.font.montserrat_medium)),
 
                 ))
